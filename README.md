@@ -4,7 +4,7 @@
 Z8S180 16MHz no wait  
 
 ![MEZZ180RAM](https://github.com/satoshiokue/EMUZ80-Z180RAM/blob/main/imgs/MEZZ180RAM_2.jpeg)  
-試作基板によるテストの様子  
+試作基板MEZZ180+MEZ80RAMによるテストの様子  
 
 電脳伝説さん(@vintagechips)のEMUZ80が出力するZ80 CPU制御信号をメザニンボードで組み替え、Z180と64kB RAMを動作させることができます。  
 RAMの制御信号とIOアクセスのWAIT信号をPICのCLC(Configurable Logic Cell)機能で作成しています。  
