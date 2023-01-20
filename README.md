@@ -68,7 +68,7 @@ PIC18F47Q83 emuz180RAM_xMHz_Q8x.hex
 PIC18F47Q84 emuz180RAM_xMHz_Q8x.hex  
 
 6MHzファームウェアはPICから12MHzのクロック周波数を与え、Z180の設定はメモリとI/Oのウェイト0、リフレッシュ無効です。  
-16MHzファームウェアはZ8S180/L180で追加されたCPU Control Resister(CCR:1FH) の Clock Divide(Bit7)をXTAL/1とすることでPICから与えた16MHzのクロック周波数で動作します。  
+16MHzファームウェアはZ8S180/L180で追加されたCPU Control Resister(CCR:1FH) の Clock Divide(Bit7)をXTAL/1として、ファームウェアの150行目をコメントアウトしています。PICから与えた16MHzのクロック周波数で動作します。  
 
 ## Z80プログラムの格納
 インテルHEXデータを配列データ化して配列rom[]に格納すると0x0000に転送されZ180で実行できます。
