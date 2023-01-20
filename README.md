@@ -76,7 +76,7 @@ PIC18F47Q84 emuz180RAM_xMHz_Q8x.hex
 ROMデータは最大32kBまで転送できますが、現行のファームウェアは8kバイト(0x0000-0x1FFF)転送しています。
 
 ## EMUBASICの変更点
-EMUZ80用のEMBASICを次の様に変更しました。  
+EMUZ80用のEMUBASICを次の様に変更しました。  
 
 RAMスタートアドレスを8000Hから2000Hに変更  
 通信入出力をメモリマップドI/OからI/O空間へ変更  
