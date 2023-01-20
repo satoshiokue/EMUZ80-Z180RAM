@@ -81,7 +81,7 @@
 #include <xc.h>
 #include <stdio.h>
 
-#define Z180_CLK 16000000UL 	// Z180 clock frequency(Max 16MHz)
+#define Z180_CLK 12000000UL 	// Z180 clock frequency(Max 16MHz)
 
 #define ROM_SIZE 0x2000		//8K bytes
 #define UART_DREG 0x40		//Data REG
@@ -147,7 +147,7 @@ void __interrupt(irq(CLC4),base(8)) CLC_ISR(){
 
 	//Post processing
 //	while(!RA0);				// /IORQ <5.6MHz
-//	while(!RD7);				// /WAIT >=5.6MHz
+	while(!RD7);				// /WAIT >=5.6MHz
 
 	TRISC = 0xff;				// Set as input
 	G3POL = 0;
