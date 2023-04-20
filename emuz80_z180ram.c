@@ -7,6 +7,7 @@
  *
  * Modified by Satoshi Okue https://twitter.com/S_Okue
  * Version 0.1 2023/1/20
+ * Version 0.2 2023/4/20
  */
 
 /*
@@ -101,13 +102,13 @@ union {
 	};
 } ab;
 
-/*
 // UART3 Transmit
 void putch(char c) {
 	while(!U3TXIF); // Wait or Tx interrupt flag set
 	U3TXB = c; // Write data
 }
 
+/*
 // UART3 Recive
 char getch(void) {
 	while(!U3RXIF); // Wait for Rx interrupt flag set
@@ -175,7 +176,7 @@ void main(void) {
 	// Address bus A15-A8 pin (A14:/RFSH, A15:/WAIT)
 	ANSELD = 0x00;	// Disable analog function
 	LATD = 0x00;
-	TRISD = 0x00;	// Set as output
+	TRISD = 0x40;	// Set as output
 
 	// A14 (RE2) output pin
 	ANSELE2 = 0;	// Disable analog function
@@ -196,8 +197,7 @@ void main(void) {
 	RA2PPS = 0x3f;	// RA2 asign NCO1
 	ANSELA2 = 0;	// Disable analog function
 	TRISA2 = 0;		// NCO output pin
-	NCO1INC = Z180_CLK * 2 / 61;
-//	NCO1INC = 524288;	// 15.99MHz 
+	NCO1INC = (unsigned int)(Z180_CLK / 30.5175781);
 	NCO1CLK = 0x00;	// Clock source Fosc
 	NCO1PFM = 0; 	// FDC mode
 	NCO1OUT = 1; 	// NCO output enable
@@ -287,6 +287,7 @@ void main(void) {
 	LATD7 = 1;		// WAIT
 	TRISD7 = 0;		// Set as output
 
+	printf("\r\nMEZZ180RAM %2.3fMHz\r\n",NCO1INC * 30.5175781 / 1000000);
 
 	//========== CLC pin assign ===========
 	// 0,1,4,5 = Port A, C
